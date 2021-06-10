@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      let token = "",
+        auth = false,
+        user = "";
+      for (var param of params) {
+        if (param[0] == "token") {
+          token = param[1];
+          continue;
+        }
+        if (param[0] == "authentication") {
+          auth = param[1];
+        }
+        if (param[0] == "user") {
+          user = param[1];
+        }
+      }
+      setLocalStorage(token, auth, user);
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">Auth Management</div>
+      <div id="header-navbar"></div>
+    </header>
+    <script></script>
+    <div class="home">
+      <header class="home-header"><h3>Product Lists</h3></header>
+      <main class="home-products">
+        <!-- all products -->
+        <div id="product-lists" class="home-product-lists"></div>
+      </main>
+    </div>
+    <script>
+      headerNavItem();
+      getAllProducts();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+.index {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#iframe-header {
+  width: 80vw;
+  max-height: 80px;
+}
+
+#iframe-main {
+  width: 80vw;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: hidden;
+}

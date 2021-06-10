@@ -1,0 +1,195 @@
+{
+  "users": [
+    {
+      "name": "amrit",
+      "email": "amrit@gmail.com",
+      "password": "amrit123",
+      "role": "ADMIN"
+    },
+    {
+      "name": "vivek",
+      "email": "vivek@gmail.com",
+      "password": "vivek123",
+      "role": "USER"
+    },
+    {
+      "name": "arpan",
+      "email": "arpan@gmail.com",
+      "password": "arpan123",
+      "role": "ADMIN"
+    },
+    {
+      "name": "neha",
+      "email": "neha@gmail.com",
+      "password": "neha123",
+      "role": "USER"
+    },
+    {
+      "name": "bang",
+      "email": "bang@gmail.com",
+      "password": "bang123",
+      "role": "ADMIN"
+    }
+  ],
+  "products": [
+    {
+      "id": 100,
+      "name": "Amazon Fire phone",
+      "img": "https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg",
+      "price": 300
+    },
+    {
+      "id": 102,
+      "name": "Google Pixel 5 5G",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81-fNmQqlLL._SX522_.jpg",
+      "price": 800
+    },
+    {
+      "id": 103,
+      "name": "Oppo A5 2020",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/514zYTXaCqL._SX679_.jpg",
+      "price": 450
+    },
+    {
+      "id": 104,
+      "name": "Redmi Note 9",
+      "img": "https://m.media-amazon.com/images/I/71X5I1cVfbL._AC_SS450_.jpg",
+      "price": 300
+    },
+    {
+      "id": 100,
+      "name": "Amazon Fire phone",
+      "img": "https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg",
+      "price": 300
+    },
+    {
+      "id": 102,
+      "name": "Google Pixel 5 5G",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81-fNmQqlLL._SX522_.jpg",
+      "price": 800
+    },
+    {
+      "id": 103,
+      "name": "Oppo A5 2020",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/514zYTXaCqL._SX679_.jpg",
+      "price": 450
+    },
+    {
+      "id": 104,
+      "name": "Redmi Note 9",
+      "img": "https://m.media-amazon.com/images/I/71X5I1cVfbL._AC_SS450_.jpg",
+      "price": 300
+    },
+    {
+      "id": 100,
+      "name": "Amazon Fire phone",
+      "img": "https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg",
+      "price": 300
+    },
+    {
+      "id": 102,
+      "name": "Google Pixel 5 5G",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81-fNmQqlLL._SX522_.jpg",
+      "price": 800
+    },
+    {
+      "id": 103,
+      "name": "Oppo A5 2020",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/514zYTXaCqL._SX679_.jpg",
+      "price": 450
+    },
+    {
+      "id": 104,
+      "name": "Redmi Note 9",
+      "img": "https://m.media-amazon.com/images/I/71X5I1cVfbL._AC_SS450_.jpg",
+      "price": 300
+    },
+    {
+      "id": 100,
+      "name": "Amazon Fire phone",
+      "img": "https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg",
+      "price": 300
+    },
+    {
+      "id": 102,
+      "name": "Google Pixel 5 5G",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81-fNmQqlLL._SX522_.jpg",
+      "price": 800
+    },
+    {
+      "id": 103,
+      "name": "Oppo A5 2020",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/514zYTXaCqL._SX679_.jpg",
+      "price": 450
+    },
+    {
+      "id": 104,
+      "name": "Redmi Note 9",
+      "img": "https://m.media-amazon.com/images/I/71X5I1cVfbL._AC_SS450_.jpg",
+      "price": 300
+    }
+  ],
+  "Orders": [],
+  "Cart": [
+    {
+      "id": 600,
+      "name": "amrit",
+      "items": [
+        {
+          "id": 101
+        },
+        {
+          "id": 104
+        },
+        {
+          "id": 103
+        },
+        {
+          "id": 102
+        },
+        {
+          "id": 100
+        },
+        {
+          "id": 103
+        },
+        {
+          "id": 104
+        },
+        {
+          "id": 104
+        },
+        {
+          "id": 104
+        },
+        {
+          "id": 104
+        },
+        {
+          "id": 100
+        }
+      ]
+    },
+    {
+      "id": 601,
+      "name": "vivek",
+      "items": [
+        {
+          "id": 103
+        }
+      ]
+    },
+    {
+      "id": 602,
+      "name": "neha",
+      "items": [
+        {
+          "id": 104
+        },
+        {
+          "id": 102
+        }
+      ]
+    }
+  ]
+}

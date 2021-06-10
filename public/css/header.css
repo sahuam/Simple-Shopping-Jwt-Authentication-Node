@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: whitesmoke;
+  height: 100%;
+  padding: 10px 30px;
+}
+
+.header-logo {
+  color: purple;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+#header-navbar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 200px;
+}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">Auth Management</div>
+      <div id="header-navbar"></div>
+    </header>
+    <script>
+      headerNavItem();
+    </script>
+    <div class="register-container">
+      <form action="/register" method="POST" class="register-form">
+        <input
+          type="text"
+          id="register-username"
+          name="register-username"
+          placeholder="User Name"
+          class="register-input"
+          value="amrit"
+          required
+        />
+        <input
+          type="password"
+          id="register-password"
+          name="register-password"
+          placeholder="Password"
+          class="register-input"
+          value="amrit123"
+          required
+        />
+        <button type="submit" class="btn form-btn register-btn">
+          Register
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
