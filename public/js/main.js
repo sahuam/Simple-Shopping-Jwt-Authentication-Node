@@ -1,9 +1,15 @@
 const hostname = "http://localhost:4000/";
 
 function setLocalStorage(token, auth, user) {
-  window.sessionStorage.setItem("token", token);
-  window.sessionStorage.setItem("auth", auth);
-  window.sessionStorage.setItem("user", user);
+  if (auth) {
+    window.sessionStorage.setItem("token", token);
+    window.sessionStorage.setItem("auth", auth);
+    window.sessionStorage.setItem("user", user);
+  } else {
+    window.sessionStorage.setItem("token", "");
+    window.sessionStorage.setItem("auth", false);
+    window.sessionStorage.setItem("user", "");
+  }
 }
 
 function logOut() {
@@ -11,27 +17,31 @@ function logOut() {
   window.location = "http://localhost:4000/";
 }
 
-async function isTokenValid() {
-  let tokenValid = await fetch("http://localhost:4000/validateToken", {
-    method: "POST",
+async function tokenInfo() {
+  console.log("tokenInfo()");
+  let token_info = await fetch("http://localhost:4000/validateToken", {
+    method: "GET",
     headers: {
       "x-access-token": window.sessionStorage.getItem("token"),
     },
   })
-    .then((res) => res.json())
-    .then((data) => {
-      return data;
-    });
-  console.log(tokenValid);
+    .then((resp) => resp.json())
+    .then((data) => data);
+
+  console.log("tokenInfo() - info : ", token_info);
   //it will send {tokenValid:true/false, user: String, role: String, | msg: String (only if error occurs)}
-  return tokenValid;
+  return token_info;
 }
+
+//Header Related Functions
 
 async function headerNavItem() {
   const headerNav = document.getElementById("header-navbar");
-  const tokenData = await isTokenValid();
-  console.log(tokenData);
-  if (!tokenData.tokenValid) {
+  const isTokenValid =
+    window.sessionStorage.getItem("auth") == "true" ? true : false;
+  console.log("headerNav() - isTokenValid :", isTokenValid);
+  if (!isTokenValid) {
+    console.log("headerNav() - Login|Register");
     const loginAnchor = document.createElement("button");
     loginAnchor.textContent = "Login";
     loginAnchor.onclick = () =>
@@ -46,9 +56,10 @@ async function headerNavItem() {
     headerNav.appendChild(loginAnchor);
     headerNav.appendChild(registerAnchor);
   } else {
-    console.log("header for login user");
-
-    addNavsByRole(headerNav, tokenData.role);
+    console.log("headerNav() - Nav Links");
+    let token_info = await tokenInfo();
+    console.log("headerNav() - Nav Links - token info :", token_info);
+    addNavsByRole(headerNav, token_info.role);
     const logOutBtn = document.createElement("button");
     logOutBtn.textContent = "Log Out";
     logOutBtn.onclick = () => logOut();
@@ -70,20 +81,21 @@ async function headerNavItem() {
 // USER => read all PRODUCTS, r/w own CART and place and cancel an ORDER
 // ADMIN => r/w any ORDER, r/w any PRODUCT, r/w any USER
 function addNavsByRole(headerNav, role) {
+  console.log("adding nav links by role", role);
   const USER_NAV_LIST = [
-    ["my orders", "order.html"],
-    ["my cart", "myCart.html"],
+    ["my orders", "myOrder"],
+    ["my cart", "myCart"],
   ];
   const ADMIN_NAV_LIST = [
-    ["user lists", "userList.html"],
-    ["order lists", "orderList.html"],
-    ["product lists", "productList.html"],
+    ["user lists", "userList"],
+    ["order lists", "orderList"],
+    ["product lists", "productList"],
   ];
   USER_NAV_LIST.forEach((link) => {
     let navlink = document.createElement("a");
     navlink.setAttribute("class", "header-navbar-links");
     navlink.text = link[0];
-    navlink.href = "./" + link[1];
+    navlink.href = link[1];
     headerNav.appendChild(navlink);
   });
   if (role == "ADMIN") {
@@ -91,7 +103,7 @@ function addNavsByRole(headerNav, role) {
       let navlink = document.createElement("a");
       navlink.setAttribute("class", "header-navbar-links");
       navlink.text = link[0];
-      navlink.href = "./admin/" + link[1];
+      navlink.href = link[1];
       headerNav.appendChild(navlink);
     });
   }
@@ -101,80 +113,4 @@ function addNavsByRole(headerNav, role) {
 function changeFrame(page) {
   var iframe = document.getElementById("iframe-main");
   iframe.setAttribute("src", "./" + page);
-}
-
-//fetching products
-function getAllProducts() {
-  const url = "http://localhost:4000";
-  fetch(url + "/products", {
-    method: "GET",
-  })
-    .then((res) => res.json())
-    .then((data) => createProductElements(data))
-    .catch((err) => console.err(err));
-}
-
-//create product elements in product list page
-function createProductElements(products) {
-  let productElement = document.getElementById("product-lists");
-
-  if (products.length == 0) {
-    const noProducts = document.createElement("p");
-    noProducts.textContent = "No Products Available.";
-    productElement.appendChild(noProducts);
-  } else {
-    products.forEach((product_data) => {
-      const product = document.createElement("div");
-      const product_name = document.createElement("p");
-      const product_img = document.createElement("img");
-      const product_price = document.createElement("p");
-      const product_button = document.createElement("button");
-
-      product.setAttribute("id", "product-item-" + product_data.id);
-      product.setAttribute("class", "product-item");
-      product_name.setAttribute("class", "product-item-name");
-      product_img.setAttribute("class", "product-item-img");
-      product_price.setAttribute("class", "product-item-price");
-      product_button.setAttribute("id", "product-btn-" + product_data.id);
-      product_button.setAttribute("class", "btn product-btn");
-
-      product_name.textContent = product_data.name;
-      product_img.src = product_data.img;
-      product_price.textContent = product_data.price;
-      product_button.textContent = "Add To Cart";
-      product_button.onclick = () => addToCart(product_data.id);
-
-      product.appendChild(product_img);
-      product.appendChild(product_name);
-      product.appendChild(product_price);
-      product.appendChild(product_button);
-      productElement.appendChild(product);
-    });
-  }
-}
-
-//add to cart
-function addToCart(product_id) {
-  const url = "http://localhost:4000";
-  var auth = window.sessionStorage.getItem("auth") == "true" ? true : false;
-  if (!auth) {
-  } else {
-    fetch(
-      url +
-        "/usercart/" +
-        product_id +
-        "/" +
-        window.sessionStorage.getItem("user"),
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": window.sessionStorage.getItem("token"),
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((er) => console.error(er));
-  }
 }

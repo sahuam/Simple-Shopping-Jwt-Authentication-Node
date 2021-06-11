@@ -39,76 +39,10 @@
       "price": 300
     },
     {
-      "id": 102,
-      "name": "Google Pixel 5 5G",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/81-fNmQqlLL._SX522_.jpg",
-      "price": 800
-    },
-    {
-      "id": 103,
-      "name": "Oppo A5 2020",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/514zYTXaCqL._SX679_.jpg",
-      "price": 450
-    },
-    {
-      "id": 104,
-      "name": "Redmi Note 9",
-      "img": "https://m.media-amazon.com/images/I/71X5I1cVfbL._AC_SS450_.jpg",
-      "price": 300
-    },
-    {
-      "id": 100,
-      "name": "Amazon Fire phone",
-      "img": "https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg",
-      "price": 300
-    },
-    {
-      "id": 102,
-      "name": "Google Pixel 5 5G",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/81-fNmQqlLL._SX522_.jpg",
-      "price": 800
-    },
-    {
-      "id": 103,
-      "name": "Oppo A5 2020",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/514zYTXaCqL._SX679_.jpg",
-      "price": 450
-    },
-    {
-      "id": 104,
-      "name": "Redmi Note 9",
-      "img": "https://m.media-amazon.com/images/I/71X5I1cVfbL._AC_SS450_.jpg",
-      "price": 300
-    },
-    {
-      "id": 100,
-      "name": "Amazon Fire phone",
-      "img": "https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg",
-      "price": 300
-    },
-    {
-      "id": 102,
-      "name": "Google Pixel 5 5G",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/81-fNmQqlLL._SX522_.jpg",
-      "price": 800
-    },
-    {
-      "id": 103,
-      "name": "Oppo A5 2020",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/514zYTXaCqL._SX679_.jpg",
-      "price": 450
-    },
-    {
-      "id": 104,
-      "name": "Redmi Note 9",
-      "img": "https://m.media-amazon.com/images/I/71X5I1cVfbL._AC_SS450_.jpg",
-      "price": 300
-    },
-    {
-      "id": 100,
-      "name": "Amazon Fire phone",
-      "img": "https://drop.ndtv.com/TECH/product_database/images/619201492915AM_635_amazon_fire_phone_new.jpeg",
-      "price": 300
+      "id": 101,
+      "name": "OnePlus 8T 5G",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfPyhnc79DFtWl8iBX5ftzBuEYpxZvH3M0Jg&usqp=CAU",
+      "price": 900
     },
     {
       "id": 102,

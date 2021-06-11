@@ -7,4 +7,5 @@ module.exports = {
   db: {
     url: "http://localhost:8600",
   },
+  publicDir: __dirname,
 };

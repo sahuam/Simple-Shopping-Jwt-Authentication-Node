@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { default: axios } = require("axios");
-
+const { getTokenInfo } = require("./utils/authenticationUtil");
 const jwt = require("jsonwebtoken");
 
 app.use(cors());
@@ -144,21 +144,27 @@ app.post("/usercart/:id/:user", async (req, res) => {
   }
 });
 
-app.post("/validateToken", (req, res) => {
+app.get("/validateToken", (req, res) => {
+  console.log("validate token");
   const token = req.headers["x-access-token"];
-  console.log(token);
-  jwt.verify(token, "MY_SECRET_TOKEN", (err, decoded) => {
-    if (err) {
-      return res.status(200).send({ tokenValid: false, msg: err });
-    } else {
-      return res.send({
-        tokenValid: true,
-        user: decoded.user,
-        role: decoded.role,
-      });
-    }
-  });
+  let tokenInfo = {};
+  if (!token) {
+    console.log("no token found.");
+    tokenInfo = {
+      tokenValid: false,
+      user: "",
+      role: "",
+      msg: "token not found",
+    };
+  }
+  tokenInfo = getTokenInfo(token);
+  console.log(tokenInfo);
+  res.status(200).send(tokenInfo);
 });
+
+MyCartController = require("./controllers/user/MyCart");
+
+app.use("/myCart", MyCartController);
 
 app.listen(4000, () => console.log("Server is up at 4000."));
 
