@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./js/main.js"></script>
+    <script src="js/product.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/home.css" />
     <style>
       iframe {
         display: block;
@@ -22,8 +24,16 @@
         <div class="header-logo">Auth Management</div>
         <div id="header-navbar"></div>
       </header>
+      <div class="home">
+        <header class="home-header"><h3>Product Lists</h3></header>
+        <main class="home-products">
+          <!-- all products -->
+          <div id="product-lists" class="home-product-lists"></div>
+        </main>
+      </div>
       <script>
         headerNavItem();
+        getAllProducts();
       </script>
       <!-- <iframe id="iframe-main" src="./home.html" frameborder="0"></iframe> -->
     </div>

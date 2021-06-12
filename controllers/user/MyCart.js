@@ -26,4 +26,14 @@ router.get("/getProducts", (req, res) => {
   }
 });
 
+router.put("/", (req, res) => {
+  const token = req.headers["x-access-token"];
+  const tokenInfo = getTokenInfo(token);
+  if (!tokenInfo.tokenValid) {
+    res.send(tokenInfo);
+  } else {
+   
+  }
+});
+
 module.exports = router;

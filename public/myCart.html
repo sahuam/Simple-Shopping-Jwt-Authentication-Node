@@ -8,7 +8,7 @@
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/mycart.css" />
   </head>
   <body>
     <header class="header">
@@ -16,8 +16,34 @@
       <div id="header-navbar"></div>
     </header>
     <div class="container cart-container">
-      Cart
-      <div id="cart-list" class="cart-list"></div>
+      <header class="cart-header"><h3>Cart</h3></header>
+      <main class="cart-body">
+        <div id="cart-list" class="cart-list"></div>
+        <div class="cart-order">
+          <h5>Order</h5>
+
+          <table class="order-detail">
+            <tr>
+              <th>Total Items</th>
+              <td>5</td>
+            </tr>
+            <tr>
+              <th>Price</th>
+              <td>$300</td>
+            </tr>
+
+            <tr>
+              <th>Tax</th>
+              <td>$5.6</td>
+            </tr>
+            <tr>
+              <th>Net Price</th>
+              <td>$305.6</td>
+            </tr>
+          </table>
+          <button class="btn order-btn">Order Now</button>
+        </div>
+      </main>
     </div>
     <script>
       headerNavItem();

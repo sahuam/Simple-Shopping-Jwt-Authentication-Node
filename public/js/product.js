@@ -48,4 +48,29 @@ function getAllProducts() {
       });
     }
   }
-  
+  //add to cart
+function addToCart(product_id) {
+  const url = "http://localhost:4000";
+  var auth = window.sessionStorage.getItem("auth") == "true" ? true : false;
+  if (!auth) {
+    window.location.href="/login"
+  } else {
+    fetch(
+      url +
+        "/usercart/" +
+        product_id +
+        "/" +
+        window.sessionStorage.getItem("user"),
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": window.sessionStorage.getItem("token"),
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((er) => console.error(er));
+  }
+}
